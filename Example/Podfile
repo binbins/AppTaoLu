@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'AppTaoLu_Example' do
+  pod 'AppTaoLu', :path => '../'
+
+  target 'AppTaoLu_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
