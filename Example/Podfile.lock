@@ -1,0 +1,41 @@
+PODS:
+  - AFNetworking (3.1.0):
+    - AFNetworking/NSURLSession (= 3.1.0)
+    - AFNetworking/Reachability (= 3.1.0)
+    - AFNetworking/Security (= 3.1.0)
+    - AFNetworking/Serialization (= 3.1.0)
+    - AFNetworking/UIKit (= 3.1.0)
+  - AFNetworking/NSURLSession (3.1.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.1.0)
+  - AFNetworking/Security (3.1.0)
+  - AFNetworking/Serialization (3.1.0)
+  - AFNetworking/UIKit (3.1.0):
+    - AFNetworking/NSURLSession
+  - AppTaoLu (0.1.0):
+    - OnlineConfig (~> 0.1.2)
+    - SDWebImage (~> 4.0.0)
+  - OnlineConfig (0.1.2):
+    - AFNetworking (~> 3)
+  - SDWebImage (4.0.0):
+    - SDWebImage/Core (= 4.0.0)
+  - SDWebImage/Core (4.0.0)
+
+DEPENDENCIES:
+  - AppTaoLu (from `../`)
+
+EXTERNAL SOURCES:
+  AppTaoLu:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  AppTaoLu: 1663b57ddf95dd48c3a6de72fd54d6cc998d3491
+  OnlineConfig: aefdd7e63f164988e94f6768a87ecde18493d23e
+  SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
+
+PODFILE CHECKSUM: dd10ff3aa474ef115efb5ca467e9b87188310bdd
+
+COCOAPODS: 1.2.1.beta.1

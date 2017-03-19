@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'AppTaoLu'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of AppTaoLu.'
+  s.summary          = 'app 中可以共用的弹框'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -24,7 +24,7 @@ TODO: Add long description of the pod here.
   s.homepage         = 'https://github.com/binbins/AppTaoLu'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'binbins' => '18790658715@126.com' }
+  s.author           = { 'binbins' => 'gddabinbin@gmail.com' }
   s.source           = { :git => 'https://github.com/binbins/AppTaoLu.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
@@ -32,11 +32,19 @@ TODO: Add long description of the pod here.
 
   s.source_files = 'AppTaoLu/Classes/**/*'
   
-  # s.resource_bundles = {
-  #   'AppTaoLu' => ['AppTaoLu/Assets/*.png']
-  # }
+  s.resource_bundles = {
+    'AppTaoLu' => ['AppTaoLu/Assets/*.png']
+  }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  # s.dependency 'Firebase/RemoteConfig'
+  s.dependency 'OnlineConfig', '~> 0.1.2'
+  s.dependency 'SDWebImage', '~> 4.0.0'
+
+
+
+
+
+
 end

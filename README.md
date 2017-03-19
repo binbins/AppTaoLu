@@ -22,7 +22,7 @@ pod "AppTaoLu"
 
 ## Author
 
-binbins, 18790658715@126.com
+binbins, gddabinbin@gmail.com
 
 ## License
 

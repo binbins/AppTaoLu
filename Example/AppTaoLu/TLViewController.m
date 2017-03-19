@@ -7,6 +7,7 @@
 //
 
 #import "TLViewController.h"
+@import AppTaoLu;
 
 @interface TLViewController ()
 
@@ -25,5 +26,37 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+#pragma mark - outlet
+
+- (IBAction)pushRate:(id)sender {
+    
+    [TaoLu showModalRate];
+}
+
+- (IBAction)pushAD:(id)sender {
+    
+    [TaoLu showModalAd];
+}
+
+- (IBAction)pushUP:(id)sender {
+    
+    [TaoLu showModalUp];
+}
+
+- (IBAction)pushTip:(id)sender {
+    [TaoLu showModalTip];
+}
+
+
+
+
+
+
+
+
+
+
 
 @end
