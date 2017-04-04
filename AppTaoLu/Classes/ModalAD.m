@@ -31,7 +31,7 @@
     NSURL *coverurl = [SafeObject safeUrl:[TaoLuData dataAd] objectForKey:@"cover_url"];
     [self.adCover sd_setImageWithURL:coverurl];
     
-    BOOL *hideForce = [SafeObject safeBool:[TaoLuData dataAd] objectForKey:@"strategy_force"];
+    BOOL *hideForce = (BOOL)[SafeObject safeBool:[TaoLuData dataAd] objectForKey:@"strategy_force"];
     self.closeBtn.hidden = hideForce;
     
     NSString *confirmTitle = [SafeObject safeString:[TaoLuData dataAd] objectForKey:@"btn_text"];

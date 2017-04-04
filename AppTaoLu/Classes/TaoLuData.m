@@ -201,7 +201,7 @@ static dispatch_once_t oncetoken;
 }
 
 + (NSString *)tipFlag {
-
+    NSLog(@"暂时不用");
 }
 
 @end
