@@ -10,6 +10,7 @@
 #define LOCALURL @"http://192.168.0.217:9100/"
 #import "TLAppDelegate.h"
 @import OnlineConfig;
+@import AppTaoLu;
 
 @implementation TLAppDelegate
 
@@ -22,7 +23,8 @@
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
-    [ConfigRequest updateConfig:LOCALURL];
+    [ConfigRequest updateConfig:TESTUTL];
+    [TaoLu checkResultIfOnwaiting];
 }
 
 #pragma mark -

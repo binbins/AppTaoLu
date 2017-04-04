@@ -100,7 +100,7 @@
                         <constraint firstAttribute="trailing" secondItem="cYC-Ak-Wk3" secondAttribute="trailing" id="E20-i1-W3g"/>
                         <constraint firstItem="Vv7-xW-PNC" firstAttribute="centerX" secondItem="UHd-aj-4bY" secondAttribute="centerX" id="HZQ-gY-Rq7"/>
                         <constraint firstItem="eTz-Gm-XDa" firstAttribute="centerX" secondItem="UHd-aj-4bY" secondAttribute="centerX" id="I9c-pS-EnG"/>
-                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="160" id="VZl-mW-1VS"/>
+                        <constraint firstAttribute="width" constant="315" id="XkW-lH-Pij"/>
                         <constraint firstItem="zfu-Yh-p9k" firstAttribute="leading" secondItem="UHd-aj-4bY" secondAttribute="leading" id="a81-a6-t0D"/>
                         <constraint firstItem="cYC-Ak-Wk3" firstAttribute="width" secondItem="UHd-aj-4bY" secondAttribute="width" multiplier="1/2" id="cql-K1-cXf"/>
                         <constraint firstAttribute="trailing" secondItem="zfu-Yh-p9k" secondAttribute="trailing" id="eR0-h7-Knb"/>
@@ -119,9 +119,8 @@
             </subviews>
             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.40467625899999998" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="UHd-aj-4bY" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="Dm0-2I-njN"/>
+                <constraint firstItem="UHd-aj-4bY" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="QqY-80-l54"/>
                 <constraint firstItem="UHd-aj-4bY" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="iuk-zt-YMc"/>
-                <constraint firstAttribute="trailing" secondItem="UHd-aj-4bY" secondAttribute="trailing" constant="30" id="ji7-2L-Pn5"/>
             </constraints>
         </view>
     </objects>

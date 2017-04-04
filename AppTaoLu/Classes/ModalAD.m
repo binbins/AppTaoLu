@@ -31,8 +31,8 @@
     NSURL *coverurl = [SafeObject safeUrl:[TaoLuData dataAd] objectForKey:@"cover_url"];
     [self.adCover sd_setImageWithURL:coverurl];
     
-    BOOL *showClose = [SafeObject safeBool:[TaoLuData dataAd] objectForKey:@"show_close"];
-    self.closeBtn.hidden = !showClose;
+    BOOL *hideForce = [SafeObject safeBool:[TaoLuData dataAd] objectForKey:@"strategy_force"];
+    self.closeBtn.hidden = hideForce;
     
     NSString *confirmTitle = [SafeObject safeString:[TaoLuData dataAd] objectForKey:@"btn_text"];
     [self.confirmBtn setTitle:confirmTitle forState:UIControlStateNormal];
@@ -46,7 +46,7 @@
 #pragma mark - outlet
 
 - (IBAction)touchCover:(id)sender {
-    
+    [self confirmAction:sender];
 }
 
 - (IBAction)confirmAction:(id)sender {

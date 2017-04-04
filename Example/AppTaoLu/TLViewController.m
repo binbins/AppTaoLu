@@ -46,7 +46,7 @@
 }
 
 - (IBAction)pushTip:(id)sender {
-    [TaoLu showModalTip];
+    [TaoLu resetTaoLu];
 }
 
 

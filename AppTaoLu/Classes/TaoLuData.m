@@ -46,76 +46,114 @@ static TaoLuData *taoLuManager;
 
 @implementation TaoLu
 
-+ (void)showModalAd {   //与广告相关
+static TaoLu *taolu;
+static dispatch_once_t oncetoken;
+
++ (TaoLu *)shareInstance {
+    dispatch_once(&onceToken, ^{
+        taolu = [[TaoLu alloc]init];
+        taolu.onWaiting = NO;
+    });
+    return taolu;
+}
+
++ (void)checkResultIfOnwaiting {
+
+    if (![TaoLu shareInstance].onWaiting) {
+        return;
+    }
+    TaoLu *taolu = [TaoLu shareInstance];
+    taolu.onWaiting = NO;
+    
+    if ([[NSDate date] laterDate:taolu.supposedTime] == taolu.supposedTime) {
+        NSLog(@"提前回来，没有完成好评");
+    }else {
+        
+        [USERDEFAULTS setBool:@(YES) forKey:[TaoLu rateFlag]];
+        NSLog(@"完成好评任务");
+    }
+}
+
++ (void)resetTaoLu {
+
+    [USERDEFAULTS setObject:@(NO) forKey:[self adFlag]];
+    [USERDEFAULTS setObject:@(NO) forKey:[self rateFlag]];
+}
+
++ (BOOL)showModalAd {   //与广告相关
     
     if (![self taoIsEnable]) {
         NSLog(@"套路关闭");
-        return;
+        return NO;
     }
     if (![self adEnable]) {
         NSLog(@"广告关闭");
-        return;
+        return NO;
     }
     if ([USERDEFAULTS boolForKey:[self adFlag]]) {
         NSLog(@"此广告已经弹出过");
-        return;
+        return NO;
     }
     
     [USERDEFAULTS setObject:@(YES) forKey:[self adFlag]];
     
     ModalAD *ctrl = [ModalAD defaultModal];
     [[UIViewController currentViewController] presentViewController:ctrl animated:NO completion:nil];
+    return YES;
 }
 
-+ (void)showModalUp {   //与版本
++ (BOOL)showModalUp {   //与版本
     
     if (![self taoIsEnable]) {
         NSLog(@"套路关闭");
-        return;
+        return NO;
     }
     if (![self upEnable]) {
         NSLog(@"升级关闭");
-        return;
+        return NO;
     }
     
     if (![self shouldPushUpModal]) {
         NSLog(@"已经是最新版本了，不用弹出");
-        return;
+        return NO;
     }
     ModalUP *ctrl = [ModalUP defaultModal];
     [[UIViewController currentViewController] presentViewController:ctrl animated:NO completion:nil];
+    return YES;
 }
 
-+ (void)showModalRate { //与版本相关
++ (BOOL)showModalRate { //与版本相关
     
     if (![self taoIsEnable]) {
         NSLog(@"套路关闭");
-        return;
+        return NO;
     }
     if (![self rateEnable]) {
         NSLog(@"好评关闭");
-        return;
+        return NO;
     }
     
     if ([USERDEFAULTS boolForKey:[self rateFlag]]) {
         NSLog(@"已经好评过，不再弹出");
-        return;
+        return NO;
     }
     ModalRate *ctrl = [ModalRate defaultModal];
     [[UIViewController currentViewController] presentViewController:ctrl animated:NO completion:nil];
+    return YES;
 }
 
-+ (void)showModalTip {
++ (BOOL)showModalTip {
     
     if (![self taoIsEnable]) {
         NSLog(@"套路关闭");
-        return;
+        return NO;
     }
     if (![self tipEnable]) {
         NSLog(@"强提示关闭");
-        return;
+        return NO;
     }
     NSLog(@"这个要做吗，有用吗");
+    return YES;
 }
 
 #pragma mark - 返回开关

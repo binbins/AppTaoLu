@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -24,10 +25,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hQL-LG-yfT">
-                    <rect key="frame" x="30" y="53.5" width="315" height="560"/>
+                    <rect key="frame" x="23.5" y="41.5" width="328" height="584"/>
                     <subviews>
                         <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="q7f-rN-XZj">
-                            <rect key="frame" x="0.0" y="0.0" width="315" height="560"/>
+                            <rect key="frame" x="0.0" y="0.0" width="328" height="584"/>
                             <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                             <gestureRecognizers/>
                             <connections>
@@ -35,7 +36,7 @@
                             </connections>
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vIq-Bc-Mcz">
-                            <rect key="frame" x="107" y="505" width="100" height="30"/>
+                            <rect key="frame" x="113.5" y="529" width="100" height="30"/>
                             <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="100" id="arF-Bl-X3d"/>
@@ -70,8 +71,8 @@
                         <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
                     </userDefinedRuntimeAttributes>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X68-lN-SHE" userLabel="close">
-                    <rect key="frame" x="315" y="40" width="40" height="40"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X68-lN-SHE" userLabel="close">
+                    <rect key="frame" x="321" y="31" width="40" height="40"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="40" id="6wt-u6-U9c"/>
                         <constraint firstAttribute="height" constant="40" id="LyP-tA-098"/>
@@ -84,11 +85,11 @@
             </subviews>
             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.40467625899999998" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="hQL-LG-yfT" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="7/8" id="AtV-Q8-8Qf"/>
                 <constraint firstItem="X68-lN-SHE" firstAttribute="trailing" secondItem="hQL-LG-yfT" secondAttribute="trailing" constant="10" id="GDW-HP-zBF"/>
                 <constraint firstItem="X68-lN-SHE" firstAttribute="top" secondItem="hQL-LG-yfT" secondAttribute="top" constant="-10" id="Han-Qs-EYo"/>
-                <constraint firstAttribute="trailing" secondItem="hQL-LG-yfT" secondAttribute="trailing" constant="30" id="HzA-iz-KT0"/>
                 <constraint firstItem="hQL-LG-yfT" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Mev-Q3-OzD"/>
-                <constraint firstItem="hQL-LG-yfT" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="mPh-nM-2TE"/>
+                <constraint firstItem="hQL-LG-yfT" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="fz6-n4-1Rx"/>
             </constraints>
         </view>
         <tapGestureRecognizer id="OYw-pW-VyV" userLabel="touchCover">

@@ -49,8 +49,8 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wnX-qD-cbX">
-                                <rect key="frame" x="222.5" y="368.5" width="30" height="30"/>
-                                <state key="normal" title="Tip"/>
+                                <rect key="frame" x="220" y="368.5" width="35" height="30"/>
+                                <state key="normal" title="reset"/>
                                 <connections>
                                     <action selector="pushTip:" destination="whP-gf-Uak" eventType="touchUpInside" id="fYN-nw-beo"/>
                                 </connections>

@@ -5,6 +5,7 @@
 //  Created by yuebin on 17/3/19.
 //
 //
+#define RATE_DEFAULT_DELAY 5
 
 #import "ModalRate.h"
 
@@ -57,10 +58,19 @@
 - (IBAction)confirmAction:(id)sender {
     [self dismissViewControllerAnimated:NO completion:nil];
     
-    [USERDEFAULTS setObject:@(YES) forKey:[TaoLu rateFlag]];
     NSURL *targetUrl = [SafeObject safeUrl:[TaoLuData dataRate] objectForKey:@"target_url"];
     [[UIApplication sharedApplication]openURL:targetUrl];
+//    [USERDEFAULTS setObject:@(YES) forKey:[TaoLu rateFlag]];
+    [self enableRateDelay];
 }
 
-
+- (void)enableRateDelay {
+    NSInteger delay = [SafeObject safeInt:[TaoLuData dataRate] objectForKey:@"limit_time"];
+    if(delay<0 || delay>20){
+        delay = RATE_DEFAULT_DELAY;
+        NSLog(@"启用sdk默认的时间：5");
+    }
+    [TaoLu shareInstance].supposedTime = [NSDate dateWithTimeIntervalSinceNow:delay];
+    [TaoLu shareInstance].onWaiting = YES;
+}
 @end

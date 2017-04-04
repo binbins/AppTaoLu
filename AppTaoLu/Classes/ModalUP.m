@@ -31,6 +31,9 @@
     self.updateText.text = content;
     [self.cancelBtn setTitle:cancelText forState:UIControlStateNormal];
     [self.confirmBtn setTitle:confirmText forState:UIControlStateNormal];
+    
+    BOOL *hideForce = [SafeObject safeBool:[TaoLuData dataUp] objectForKey:@"strategy_force"];
+    self.cancelBtn.hidden = hideForce;
 }
 
 - (NSString *)stringInUpDict:(NSString *)key {

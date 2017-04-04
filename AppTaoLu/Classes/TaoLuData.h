@@ -26,15 +26,24 @@
 
 @interface TaoLu : NSObject
 
+@property (nonatomic, assign)BOOL onWaiting;
+@property (nonatomic, strong)NSDate *supposedTime;
++ (TaoLu *)shareInstance;
+
++ (void)checkResultIfOnwaiting;
+
 + (BOOL)taoIsEnable;//开关
 
-+ (void)showModalAd;
++ (void)resetTaoLu;
 
-+ (void)showModalUp;
+//打开对应的模态视图
++ (BOOL)showModalAd;
 
-+ (void)showModalRate;
++ (BOOL)showModalUp;
 
-+ (void)showModalTip;
++ (BOOL)showModalRate;
+
++ (BOOL)showModalTip;
 
 #pragma mark - 标记key
 
