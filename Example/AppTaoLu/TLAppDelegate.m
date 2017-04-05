@@ -6,7 +6,7 @@
 //  Copyright (c) 2017 binbins. All rights reserved.
 //
 
-#define TESTUTL @"http://service.kv.dandanjiang.tv/online/params"
+#define TESTUTL @"http://service.kv.dandanjiang.tv/remote"
 #define LOCALURL @"http://192.168.0.217:9100/"
 #import "TLAppDelegate.h"
 @import OnlineConfig;
@@ -16,7 +16,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [ConfigRequest updateConfig:LOCALURL];
+    [ConfigRequest updateConfig:TESTUTL];
     return YES;
 }
 

@@ -20,25 +20,26 @@
 @implementation ModalUP
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
-    NSLog(@"转换成字典%@",[TaoLuData dataUp]);
+    [self initView];
+}
+
+- (void)initView {
+    NSString *mainTitel = [ConfigRequest stringForKey:@"up_title"];
+    NSString *content = [ConfigRequest stringForKey:@"up_content"];
+    NSString *confirmText = [ConfigRequest stringForKey:@"up_confirm_text"];
     
-    NSString *mainTitel = [self stringInUpDict:@"title"];
-    NSString *content = [self stringInUpDict:@"content"];
-    NSString *cancelText = [self stringInUpDict:@"cancel_text"];
-    NSString *confirmText = [self stringInUpDict:@"confirm_text"];
     self.mainTitle.text = mainTitel;
-    self.updateText.text = content;
-    [self.cancelBtn setTitle:cancelText forState:UIControlStateNormal];
-    [self.confirmBtn setTitle:confirmText forState:UIControlStateNormal];
     
-    BOOL *hideForce = (BOOL)[SafeObject safeBool:[TaoLuData dataUp] objectForKey:@"strategy_force"];
+    self.updateText.text = [content stringByReplacingOccurrencesOfString:@"\\n" withString:@"\n"];
+    
+    [self.confirmBtn setTitle:confirmText forState:UIControlStateNormal];
+    BOOL hideForce = [ConfigRequest boolForKey:@"up_strategy_force"];
     self.cancelBtn.hidden = hideForce;
 }
 
-- (NSString *)stringInUpDict:(NSString *)key {
-    return [SafeObject safeString:[TaoLuData dataUp] objectForKey:key];
-}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -55,7 +56,7 @@
 - (IBAction)confirmAction:(id)sender {
     [self dismissViewControllerAnimated:NO completion:nil];
     
-    NSURL *targetUrl = [SafeObject safeUrl:[TaoLuData dataUp] objectForKey:@"target_url"];
+    NSURL *targetUrl = [SafeObject safeUrl:[ConfigRequest localConfig] objectForKey:@"up_targeturl"];
     [[UIApplication sharedApplication]openURL:targetUrl];
 }
 

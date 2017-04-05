@@ -24,24 +24,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initView];
-    NSLog(@"转换成字典%@",[TaoLuData dataRate]);
 }
 
 - (void)initView {
     
-    NSString *mainTitle = [self stringInRateDict:@"main_title"];
-    NSString *subTitle = [self stringInRateDict:@"sub_title"];
-    NSString *cancelText = [self stringInRateDict:@"cancel_text"];
-    NSString *confirmText = [self stringInRateDict:@"confirm_text"];
+    NSString *mainTitle = [ConfigRequest stringForKey:@"rate_main_title"];
+    NSString *subTitle = [ConfigRequest stringForKey:@"rate_sub_title"];
+    NSString *cancelText = [ConfigRequest stringForKey:@"rate_cancel_text"];
+    NSString *confirmText = [ConfigRequest stringForKey:@"rate_confirm_text"];
     
     self.mainTitle.text = mainTitle;
     self.subTitle.text = subTitle;
     [self.cancelBtn setTitle:cancelText forState:UIControlStateNormal];
     [self.confirBtn setTitle:confirmText forState:UIControlStateNormal];
-}
-
-- (NSString *)stringInRateDict:(NSString *)key {
-    return [SafeObject safeString:[TaoLuData dataRate] objectForKey:key];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -58,14 +53,13 @@
 - (IBAction)confirmAction:(id)sender {
     [self dismissViewControllerAnimated:NO completion:nil];
     
-    NSURL *targetUrl = [SafeObject safeUrl:[TaoLuData dataRate] objectForKey:@"target_url"];
+    NSURL *targetUrl = [SafeObject safeUrl:[ConfigRequest localConfig] objectForKey:@"rate_targeturl"];
     [[UIApplication sharedApplication]openURL:targetUrl];
-//    [USERDEFAULTS setObject:@(YES) forKey:[TaoLu rateFlag]];
     [self enableRateDelay];
 }
 
 - (void)enableRateDelay {
-    NSInteger delay = [SafeObject safeInt:[TaoLuData dataRate] objectForKey:@"limit_time"];
+    NSInteger delay = [ConfigRequest intForKey:@"rate_limit_time"];
     if(delay<0 || delay>20){
         delay = RATE_DEFAULT_DELAY;
         NSLog(@"启用sdk默认的时间：5");

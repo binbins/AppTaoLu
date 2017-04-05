@@ -25,21 +25,6 @@ static TaoLuData *taoLuManager;
     return taoLuManager;
 }
 
-+ (NSDictionary *)dataRate {
-    return [ConfigRequest dictionaryForKey:@"rate"];
-}
-
-+ (NSDictionary *)dataUp {
-    return [ConfigRequest dictionaryForKey:@"up"];
-}
-
-+ (NSDictionary *)dataAd {
-    return [ConfigRequest dictionaryForKey:@"ad"];
-}
-
-+ (NSDictionary *)dataTip {
-    return [ConfigRequest dictionaryForKey:@"tip"];
-}
 @end
 
 
@@ -159,7 +144,7 @@ static dispatch_once_t oncetoken;
 #pragma mark - 返回开关
 
 + (BOOL)taoIsEnable {
-    return [ConfigRequest boolForKey:@"taolu_enable"];
+    return [ConfigRequest boolForKey:@"a_taolu_enable"];
 }
 
 + (BOOL)rateEnable {
@@ -187,13 +172,13 @@ static dispatch_once_t oncetoken;
 }
 
 + (NSString *)adFlag {
-    NSString *adid = [SafeObject safeString:[TaoLuData dataAd] objectForKey:@"id"];
+    NSString *adid = [ConfigRequest stringForKey:@"ad_id"];
     NSString *flag = [@"ourad" stringByAppendingString:adid];
     return flag;
 }
 
 + (BOOL)shouldPushUpModal {
-    NSString *newVersion = [SafeObject safeString:[TaoLuData dataUp] objectForKey:@"new_version"];
+    NSString *newVersion = [ConfigRequest stringForKey:@"up_new_version"];
     if ([newVersion isEqualToString:AppVerName]) {
         return NO;
     }

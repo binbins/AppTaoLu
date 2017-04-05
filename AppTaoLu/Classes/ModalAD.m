@@ -23,18 +23,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self  initView];
-    NSLog(@"转换成字典%@",[TaoLuData dataAd]);
 }
 
 - (void)initView {
     
-    NSURL *coverurl = [SafeObject safeUrl:[TaoLuData dataAd] objectForKey:@"cover_url"];
+    NSURL *coverurl = [SafeObject safeUrl:[ConfigRequest localConfig] objectForKey:@"ad_cover_url"];
     [self.adCover sd_setImageWithURL:coverurl];
     
-    BOOL *hideForce = (BOOL)[SafeObject safeBool:[TaoLuData dataAd] objectForKey:@"strategy_force"];
+    BOOL *hideForce = [ConfigRequest boolForKey:@"ad_strategy_force"];
     self.closeBtn.hidden = hideForce;
     
-    NSString *confirmTitle = [SafeObject safeString:[TaoLuData dataAd] objectForKey:@"btn_text"];
+    NSString *confirmTitle = [ConfigRequest stringForKey:@"ad_btn_text"];
     [self.confirmBtn setTitle:confirmTitle forState:UIControlStateNormal];
 }
 
@@ -52,7 +51,7 @@
 - (IBAction)confirmAction:(id)sender {
     [self dismissViewControllerAnimated:NO completion:nil];
     
-    NSURL *targetUrl = [SafeObject safeUrl:[TaoLuData dataAd] objectForKey:@"target_url"];
+    NSURL *targetUrl = [SafeObject safeUrl:[ConfigRequest localConfig] objectForKey:@"ad_target_url"];
     [[UIApplication sharedApplication]openURL:targetUrl];
 }
 

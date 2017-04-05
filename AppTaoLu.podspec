@@ -39,7 +39,7 @@ TODO: Add long description of the pod here.
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
   # s.dependency 'Firebase/RemoteConfig'
-  s.dependency 'OnlineConfig', '~> 0.1.2'
+  s.dependency 'OnlineConfig', '~> 0.1.3'
   s.dependency 'SDWebImage', '~> 4.0.0'
 
 

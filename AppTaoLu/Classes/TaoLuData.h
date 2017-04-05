@@ -10,16 +10,7 @@
 #import <UIKit/UIKit.h>
 
 @interface TaoLuData : NSObject
-
-@property (nonatomic, retain) NSDictionary *rateDict, *upDict, *adDict, *tipDict;
-
-+ (NSDictionary *)dataRate;
-
-+ (NSDictionary *)dataUp;
-
-+ (NSDictionary *)dataAd;
-
-+ (NSDictionary *)dataTip;
+//没用
 
 @end
 
