@@ -30,7 +30,7 @@
     NSURL *coverurl = [SafeObject safeUrl:[ConfigRequest localConfig] objectForKey:@"ad_cover_url"];
     [self.adCover sd_setImageWithURL:coverurl];
     
-    BOOL *hideForce = [ConfigRequest boolForKey:@"ad_strategy_force"];
+    BOOL hideForce = [ConfigRequest boolForKey:@"ad_strategy_force"];
     self.closeBtn.hidden = hideForce;
     
     NSString *confirmTitle = [ConfigRequest stringForKey:@"ad_btn_text"];
