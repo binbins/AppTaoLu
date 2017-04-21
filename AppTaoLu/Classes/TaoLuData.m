@@ -100,7 +100,7 @@ static dispatch_once_t oncetoken;
     return YES;
 }
 
-+ (BOOL)showModalRate { //与版本相关
++ (BOOL)showModalRateBaseTimes { //与版本相关
     NSInteger interval = [TLRemoteConfig intForKey:@"rate_interval"];
     NSInteger maxTimes = [TLRemoteConfig intForKey:@"rate_max_shows_per_life"];
     
@@ -134,6 +134,27 @@ static dispatch_once_t oncetoken;
     ModalRate *ctrl = [ModalRate defaultModal];
     [[UIViewController currentViewController] presentViewController:ctrl animated:NO completion:nil];
     [TaoLuData shareInstance].haveShowRateTimes ++;
+    return YES;
+}
+
++ (BOOL)showModalRate {
+
+    if (![self taoIsEnable]) {
+        NSLog(@"[TaoLu showModalRate] 套路关闭");
+        return NO;
+    }
+    if (![self rateEnable]) {
+        NSLog(@"[TaoLu showModalRate] 好评关闭");
+        return NO;
+    }
+    
+    if ([USERDEFAULTS boolForKey:[self rateFlag]]) {
+        NSLog(@"[TaoLu showModalRate] 已经好评过，不再弹出");
+        return NO;
+    }
+    
+    ModalRate *ctrl = [ModalRate defaultModal];
+    [[UIViewController currentViewController] presentViewController:ctrl animated:NO completion:nil];
     return YES;
 }
 

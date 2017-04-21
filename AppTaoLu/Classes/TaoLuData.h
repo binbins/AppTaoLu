@@ -35,6 +35,8 @@
 
 + (BOOL)showModalRate;
 
++ (BOOL)showModalRateIgnoreTimes;
+
 + (BOOL)showModalTip;
 
 #pragma mark - 标记key
