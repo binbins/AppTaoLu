@@ -35,7 +35,7 @@
 
 + (BOOL)showModalRate;
 
-+ (BOOL)showModalRateIgnoreTimes;
++ (BOOL)showModalRateBaseTimes;
 
 + (BOOL)showModalTip;
 
