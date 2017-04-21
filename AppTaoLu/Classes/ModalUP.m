@@ -26,16 +26,16 @@
 }
 
 - (void)initView {
-    NSString *mainTitel = [ConfigRequest stringForKey:@"up_title"];
-    NSString *content = [ConfigRequest stringForKey:@"up_content"];
-    NSString *confirmText = [ConfigRequest stringForKey:@"up_confirm_text"];
+    NSString *mainTitel = [TLRemoteConfig stringForKey:@"up_title"];
+    NSString *content = [TLRemoteConfig stringForKey:@"up_content"];
+    NSString *confirmText = [TLRemoteConfig stringForKey:@"up_confirm_text"];
     
     self.mainTitle.text = mainTitel;
     
     self.updateText.text = [content stringByReplacingOccurrencesOfString:@"\\n" withString:@"\n"];
     
     [self.confirmBtn setTitle:confirmText forState:UIControlStateNormal];
-    BOOL hideForce = [ConfigRequest boolForKey:@"up_strategy_force"];
+    BOOL hideForce = [TLRemoteConfig boolForKey:@"up_strategy_force"];
     self.cancelBtn.hidden = hideForce;
 }
 
@@ -56,7 +56,7 @@
 - (IBAction)confirmAction:(id)sender {
     [self dismissViewControllerAnimated:NO completion:nil];
     
-    NSURL *targetUrl = [SafeObject safeUrl:[ConfigRequest localConfig] objectForKey:@"up_targeturl"];
+    NSURL *targetUrl = [SafeObject safeUrl:[TLRemoteConfig localConfig] objectForKey:@"up_targeturl"];
     [[UIApplication sharedApplication]openURL:targetUrl];
 }
 

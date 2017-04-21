@@ -5,7 +5,7 @@
 //  Created by yuebin on 17/3/19.
 //
 //
-#define RATE_DEFAULT_DELAY 5
+
 
 #import "ModalRate.h"
 
@@ -28,10 +28,10 @@
 
 - (void)initView {
     
-    NSString *mainTitle = [ConfigRequest stringForKey:@"rate_main_title"];
-    NSString *subTitle = [ConfigRequest stringForKey:@"rate_sub_title"];
-    NSString *cancelText = [ConfigRequest stringForKey:@"rate_cancel_text"];
-    NSString *confirmText = [ConfigRequest stringForKey:@"rate_confirm_text"];
+    NSString *mainTitle = [TLRemoteConfig stringForKey:@"rate_main_title"];
+    NSString *subTitle = [TLRemoteConfig stringForKey:@"rate_sub_title"];
+    NSString *cancelText = [TLRemoteConfig stringForKey:@"rate_cancel_text"];
+    NSString *confirmText = [TLRemoteConfig stringForKey:@"rate_confirm_text"];
     
     self.mainTitle.text = mainTitle;
     self.subTitle.text = subTitle;
@@ -53,18 +53,15 @@
 - (IBAction)confirmAction:(id)sender {
     [self dismissViewControllerAnimated:NO completion:nil];
     
-    NSURL *targetUrl = [SafeObject safeUrl:[ConfigRequest localConfig] objectForKey:@"rate_targeturl"];
+    NSURL *targetUrl = [SafeObject safeUrl:[TLRemoteConfig localConfig] objectForKey:@"rate_targeturl"];
     [[UIApplication sharedApplication]openURL:targetUrl];
     [self enableRateDelay];
 }
 
 - (void)enableRateDelay {
-    NSInteger delay = [ConfigRequest intForKey:@"rate_limit_time"];
-    if(delay<0 || delay>20){
-        delay = RATE_DEFAULT_DELAY;
-        NSLog(@"启用sdk默认的时间：5");
-    }
-    [TaoLu shareInstance].supposedTime = [NSDate dateWithTimeIntervalSinceNow:delay];
-    [TaoLu shareInstance].onWaiting = YES;
+    NSInteger delay = [TLRemoteConfig intForKey:@"rate_limit_time"];
+    NSLog(@"好评有效时间 %ld", delay);
+    [TaoLuData shareInstance].supposedTime = [NSDate dateWithTimeIntervalSinceNow:delay];
+    [USERDEFAULTS setBool:@(YES) forKey:KEY_ONWAINTING];
 }
 @end

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "TaoLuData.h"
 @import SDWebImage;
-@import OnlineConfig;
+@import TLRemoteConfig;
 
 @interface Modal : UIViewController
 

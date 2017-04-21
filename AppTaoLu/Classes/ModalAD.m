@@ -27,13 +27,13 @@
 
 - (void)initView {
     
-    NSURL *coverurl = [SafeObject safeUrl:[ConfigRequest localConfig] objectForKey:@"ad_cover_url"];
+    NSURL *coverurl = [SafeObject safeUrl:[TLRemoteConfig localConfig] objectForKey:@"ad_cover_url"];
     [self.adCover sd_setImageWithURL:coverurl];
     
-    BOOL hideForce = [ConfigRequest boolForKey:@"ad_strategy_force"];
+    BOOL hideForce = [TLRemoteConfig boolForKey:@"ad_strategy_force"];
     self.closeBtn.hidden = hideForce;
     
-    NSString *confirmTitle = [ConfigRequest stringForKey:@"ad_btn_text"];
+    NSString *confirmTitle = [TLRemoteConfig stringForKey:@"ad_btn_text"];
     [self.confirmBtn setTitle:confirmTitle forState:UIControlStateNormal];
 }
 
@@ -51,7 +51,7 @@
 - (IBAction)confirmAction:(id)sender {
     [self dismissViewControllerAnimated:NO completion:nil];
     
-    NSURL *targetUrl = [SafeObject safeUrl:[ConfigRequest localConfig] objectForKey:@"ad_target_url"];
+    NSURL *targetUrl = [SafeObject safeUrl:[TLRemoteConfig localConfig] objectForKey:@"ad_target_url"];
     [[UIApplication sharedApplication]openURL:targetUrl];
 }
 

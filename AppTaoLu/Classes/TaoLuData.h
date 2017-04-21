@@ -5,21 +5,22 @@
 //  Created by yuebin on 17/3/20.
 //
 //
+#define KEY_ONWAINTING @"onwaiting"
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
 @interface TaoLuData : NSObject
-//没用
+@property (nonatomic, assign) NSInteger rateCallTimes, haveShowRateTimes;
+@property (nonatomic, strong)NSDate *supposedTime;
+
++ (TaoLuData *)shareInstance;
+
 
 @end
 
 
 @interface TaoLu : NSObject
-
-@property (nonatomic, assign)BOOL onWaiting;
-@property (nonatomic, strong)NSDate *supposedTime;
-+ (TaoLu *)shareInstance;
 
 + (void)checkResultIfOnwaiting;
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -36,7 +36,7 @@
                             </connections>
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vIq-Bc-Mcz">
-                            <rect key="frame" x="113.5" y="529" width="100" height="30"/>
+                            <rect key="frame" x="114" y="529" width="100" height="30"/>
                             <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="100" id="arF-Bl-X3d"/>
@@ -72,12 +72,12 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X68-lN-SHE" userLabel="close">
-                    <rect key="frame" x="321" y="31" width="40" height="40"/>
+                    <rect key="frame" x="321.5" y="31.5" width="40" height="40"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="40" id="6wt-u6-U9c"/>
                         <constraint firstAttribute="height" constant="40" id="LyP-tA-098"/>
                     </constraints>
-                    <state key="normal" image="myclose.png"/>
+                    <state key="normal" image="TLClose.png"/>
                     <connections>
                         <action selector="closeAction:" destination="-1" eventType="touchUpInside" id="gU9-yd-B12"/>
                     </connections>
@@ -99,6 +99,6 @@
         </tapGestureRecognizer>
     </objects>
     <resources>
-        <image name="myclose.png" width="84" height="84"/>
+        <image name="TLClose.png" width="84" height="84"/>
     </resources>
 </document>

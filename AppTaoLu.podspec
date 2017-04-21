@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'AppTaoLu'
-  s.version          = '0.1.3'
+  s.version          = '0.1.4'
   s.summary          = 'app 中可以共用的弹框'
 
 # This description is used to generate tags and improve search results.
@@ -31,16 +31,18 @@ TODO: Add long description of the pod here.
   s.ios.deployment_target = '8.0'
 
   s.source_files = 'AppTaoLu/Classes/**/*'
-  
-  s.resource_bundles = {
-    'AppTaoLu' => ['AppTaoLu/Assets/*.png']
-  }
+
+# target membership问题，先不用下边的方法打包资源文件
+# s.resource_bundles = {
+#    'AppTaoLu' => ['AppTaoLu/Assets/*.png']
+# }
+
+s.resources = ['AppTaoLu/Assets/*.png'];
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'Firebase/RemoteConfig'
-  s.dependency 'OnlineConfig', '~> 0.1.3'
-  s.dependency 'SDWebImage', '~> 4.0.0'
+  s.dependency 'TLRemoteConfig', '~> 0.1.0'
+  s.dependency 'SDWebImage', '~> 4'
 
 
 
