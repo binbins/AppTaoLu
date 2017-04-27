@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -25,7 +25,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="km4-Rt-PC6">
-                    <rect key="frame" x="37.5" y="167" width="300" height="333.5"/>
+                    <rect key="frame" x="37.5" y="208.5" width="300" height="250.5"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我们升级了" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XgZ-a0-eE6">
                             <rect key="frame" x="99" y="20" width="102" height="24"/>
@@ -37,13 +37,13 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GqV-Pr-NCr">
-                            <rect key="frame" x="90" y="281.5" width="120" height="32"/>
-                            <color key="backgroundColor" red="0.30588235294117649" green="0.31372549019607843" blue="0.56862745098039214" alpha="1" colorSpace="calibratedRGB"/>
+                            <rect key="frame" x="60" y="186.5" width="180" height="44"/>
+                            <color key="backgroundColor" red="0.14901960784313725" green="0.65098039215686276" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="120" id="0Nh-ED-7Et"/>
-                                <constraint firstAttribute="height" constant="32" id="Ydw-B5-das"/>
+                                <constraint firstAttribute="width" constant="180" id="0Nh-ED-7Et"/>
+                                <constraint firstAttribute="height" constant="44" id="Ydw-B5-das"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <state key="normal" title="立即更新">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
@@ -57,20 +57,21 @@
                             </connections>
                         </button>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="aLt-Wd-2qI">
-                            <rect key="frame" x="10" y="59" width="280" height="207.5"/>
+                            <rect key="frame" x="15" y="59" width="270" height="112.5"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in </string>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="XgZ-a0-eE6" firstAttribute="top" secondItem="km4-Rt-PC6" secondAttribute="top" constant="20" id="6sl-e4-lJV"/>
-                        <constraint firstItem="aLt-Wd-2qI" firstAttribute="leading" secondItem="km4-Rt-PC6" secondAttribute="leading" constant="10" id="GZX-qB-DFM"/>
+                        <constraint firstItem="aLt-Wd-2qI" firstAttribute="leading" secondItem="km4-Rt-PC6" secondAttribute="leading" constant="15" id="GZX-qB-DFM"/>
                         <constraint firstAttribute="bottom" secondItem="GqV-Pr-NCr" secondAttribute="bottom" constant="20" id="KNx-zo-Zw3"/>
                         <constraint firstItem="GqV-Pr-NCr" firstAttribute="centerX" secondItem="km4-Rt-PC6" secondAttribute="centerX" id="Ovb-4h-eav"/>
-                        <constraint firstAttribute="trailing" secondItem="aLt-Wd-2qI" secondAttribute="trailing" constant="10" id="Tzo-R7-WV0"/>
+                        <constraint firstAttribute="trailing" secondItem="aLt-Wd-2qI" secondAttribute="trailing" constant="15" id="Tzo-R7-WV0"/>
                         <constraint firstItem="aLt-Wd-2qI" firstAttribute="top" secondItem="XgZ-a0-eE6" secondAttribute="bottom" constant="15" id="YnH-vP-ect"/>
                         <constraint firstItem="GqV-Pr-NCr" firstAttribute="top" secondItem="aLt-Wd-2qI" secondAttribute="bottom" constant="15" id="r87-De-UsW"/>
                         <constraint firstItem="XgZ-a0-eE6" firstAttribute="centerX" secondItem="km4-Rt-PC6" secondAttribute="centerX" id="xzi-eU-o4U"/>
@@ -82,10 +83,10 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XzF-io-Iro" userLabel="close">
-                    <rect key="frame" x="307.5" y="157" width="40" height="40"/>
+                    <rect key="frame" x="312.5" y="198.5" width="35" height="35"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="40" id="2ci-lt-vpM"/>
-                        <constraint firstAttribute="height" constant="40" id="vlk-pn-oiw"/>
+                        <constraint firstAttribute="width" constant="35" id="2ci-lt-vpM"/>
+                        <constraint firstAttribute="height" constant="35" id="vlk-pn-oiw"/>
                     </constraints>
                     <state key="normal" image="TLClose.png"/>
                     <connections>
@@ -96,7 +97,7 @@
             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.40467625899999998" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="km4-Rt-PC6" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="HDq-rC-TcU"/>
-                <constraint firstItem="km4-Rt-PC6" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="1/2" id="Kj8-Bc-CCF"/>
+                <constraint firstItem="km4-Rt-PC6" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="3/8" id="Kj8-Bc-CCF"/>
                 <constraint firstItem="km4-Rt-PC6" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="4/5" id="LOe-hG-AR6"/>
                 <constraint firstItem="XzF-io-Iro" firstAttribute="trailing" secondItem="km4-Rt-PC6" secondAttribute="trailing" constant="10" id="N4D-PF-Nof"/>
                 <constraint firstItem="km4-Rt-PC6" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="cgY-aC-s3B"/>
@@ -106,6 +107,6 @@
         </view>
     </objects>
     <resources>
-        <image name="TLClose.png" width="84" height="84"/>
+        <image name="TLClose.png" width="55" height="55"/>
     </resources>
 </document>

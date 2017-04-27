@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'AppTaoLu'
-  s.version          = '0.1.5'
+  s.version          = '0.1.6'
   s.summary          = 'app 中可以共用的弹框'
 
 # This description is used to generate tags and improve search results.
