@@ -7,6 +7,7 @@
 //
 
 #import "TLViewController.h"
+@import SDWebImage;
 @import AppTaoLu;
 
 @interface TLViewController ()
@@ -18,7 +19,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+	
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    NSURL *coverurl = [SafeObject safeUrl:[TLRemoteConfig localConfig] objectForKey:@"ad_cover_url"];
+    if (coverurl) {
+        [[SDWebImagePrefetcher sharedImagePrefetcher]prefetchURLs:@[coverurl]]; //预加载
+    }
 }
 
 - (void)didReceiveMemoryWarning

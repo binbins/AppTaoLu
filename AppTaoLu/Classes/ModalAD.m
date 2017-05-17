@@ -29,6 +29,7 @@
     
     NSURL *coverurl = [SafeObject safeUrl:[TLRemoteConfig localConfig] objectForKey:@"ad_cover_url"];
     [self.adCover sd_setImageWithURL:coverurl];
+    [self.adCover setContentMode:UIViewContentModeScaleAspectFill];
     
     BOOL hideForce = [TLRemoteConfig boolForKey:@"ad_strategy_force"];
     self.closeBtn.hidden = hideForce;

@@ -7,7 +7,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -25,18 +24,17 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hQL-LG-yfT">
-                    <rect key="frame" x="23.5" y="41.5" width="328" height="584"/>
+                    <rect key="frame" x="20" y="82.5" width="335" height="502.5"/>
                     <subviews>
                         <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="q7f-rN-XZj">
-                            <rect key="frame" x="0.0" y="0.0" width="328" height="584"/>
-                            <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <rect key="frame" x="0.0" y="0.0" width="335" height="502.5"/>
                             <gestureRecognizers/>
                             <connections>
                                 <outletCollection property="gestureRecognizers" destination="OYw-pW-VyV" appends="YES" id="TIr-Mm-l9u"/>
                             </connections>
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vIq-Bc-Mcz">
-                            <rect key="frame" x="74" y="515" width="180" height="44"/>
+                            <rect key="frame" x="77.5" y="433.5" width="180" height="44"/>
                             <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="44" id="TVk-gX-PEu"/>
@@ -64,7 +62,7 @@
                         <constraint firstItem="q7f-rN-XZj" firstAttribute="leading" secondItem="hQL-LG-yfT" secondAttribute="leading" id="k6d-pa-gat"/>
                         <constraint firstAttribute="trailing" secondItem="q7f-rN-XZj" secondAttribute="trailing" id="mfn-zw-KvY"/>
                         <constraint firstItem="q7f-rN-XZj" firstAttribute="top" secondItem="hQL-LG-yfT" secondAttribute="top" id="wLq-7h-IGg"/>
-                        <constraint firstAttribute="width" secondItem="hQL-LG-yfT" secondAttribute="height" multiplier="9:16" id="zVX-Hz-5AM"/>
+                        <constraint firstAttribute="width" secondItem="hQL-LG-yfT" secondAttribute="height" multiplier="2:3" id="zVX-Hz-5AM"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -74,7 +72,7 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X68-lN-SHE" userLabel="close">
-                    <rect key="frame" x="326.5" y="31.5" width="35" height="35"/>
+                    <rect key="frame" x="330" y="72.5" width="35" height="35"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="35" id="6wt-u6-U9c"/>
                         <constraint firstAttribute="height" constant="35" id="LyP-tA-098"/>
@@ -87,11 +85,11 @@
             </subviews>
             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.40467625899999998" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="hQL-LG-yfT" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="7/8" id="AtV-Q8-8Qf"/>
                 <constraint firstItem="X68-lN-SHE" firstAttribute="trailing" secondItem="hQL-LG-yfT" secondAttribute="trailing" constant="10" id="GDW-HP-zBF"/>
                 <constraint firstItem="X68-lN-SHE" firstAttribute="top" secondItem="hQL-LG-yfT" secondAttribute="top" constant="-10" id="Han-Qs-EYo"/>
                 <constraint firstItem="hQL-LG-yfT" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Mev-Q3-OzD"/>
-                <constraint firstItem="hQL-LG-yfT" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="fz6-n4-1Rx"/>
+                <constraint firstItem="hQL-LG-yfT" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="huq-Lu-WqR"/>
+                <constraint firstAttribute="trailing" secondItem="hQL-LG-yfT" secondAttribute="trailing" constant="20" id="sDM-5i-RGx"/>
             </constraints>
         </view>
         <tapGestureRecognizer id="OYw-pW-VyV" userLabel="touchCover">
