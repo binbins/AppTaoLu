@@ -10,8 +10,10 @@
 #import "ModalAD.h"
 #import "ModalUP.h"
 #import "ModalRate.h"
-@import TLRemoteConfig;
 #import "UIViewController+Utils.h"
+
+@import TLRemoteConfig;
+@import StoreKit;
 
 @implementation TaoLuData
 
@@ -30,9 +32,6 @@ static TaoLuData *taoLuManager;
 
 
 @implementation TaoLu
-
-static TaoLu *taolu;
-static dispatch_once_t oncetoken;
 
 + (void)checkResultIfOnwaiting {
 
@@ -124,16 +123,21 @@ static dispatch_once_t oncetoken;
         return NO;
     }
     
+    [TaoLuData shareInstance].rateCallTimes ++; //首次不弹
     NSInteger callTimes = [TaoLuData shareInstance].rateCallTimes;
-    [TaoLuData shareInstance].rateCallTimes ++;
     if (callTimes % interval != 0) {
         NSLog(@"[TaoLu showModalRate] 不满足好评间隔约束 当前：%ld 间隔：%ld", callTimes, interval);
         return NO;
     }
     
-    ModalRate *ctrl = [ModalRate defaultModal];
-    [[UIViewController currentViewController] presentViewController:ctrl animated:NO completion:nil];
-    [TaoLuData shareInstance].haveShowRateTimes ++;
+    BOOL isSystem = [TLRemoteConfig boolForKey:@"rate_style_system"];
+    if (isSystem) {
+        [SKStoreReviewController requestReview];
+    }else {
+        ModalRate *ctrl = [ModalRate defaultModal];
+        [[UIViewController currentViewController] presentViewController:ctrl animated:NO completion:nil];
+        [TaoLuData shareInstance].haveShowRateTimes ++;
+    }
     return YES;
 }
 
@@ -155,20 +159,6 @@ static dispatch_once_t oncetoken;
     
     ModalRate *ctrl = [ModalRate defaultModal];
     [[UIViewController currentViewController] presentViewController:ctrl animated:NO completion:nil];
-    return YES;
-}
-
-+ (BOOL)showModalTip {
-    
-    if (![self taoIsEnable]) {
-        NSLog(@"套路关闭");
-        return NO;
-    }
-    if (![self tipEnable]) {
-        NSLog(@"强提示关闭");
-        return NO;
-    }
-    NSLog(@"这个要做吗，有用吗");
     return YES;
 }
 

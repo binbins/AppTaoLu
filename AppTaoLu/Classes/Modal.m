@@ -22,7 +22,7 @@
     [modal setDefinesPresentationContext:YES];
     modal.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     modal.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    return modal;
+    return (id)modal;
 }
 
 - (void)viewDidLoad {

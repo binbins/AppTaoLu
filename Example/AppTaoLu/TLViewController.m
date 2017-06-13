@@ -40,7 +40,7 @@
 
 - (IBAction)pushRate:(id)sender {
     
-    [TaoLu showModalRate];
+    [TaoLu showModalRateBaseTimes];
 }
 
 - (IBAction)pushAD:(id)sender {

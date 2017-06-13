@@ -14,7 +14,7 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
-  - AppTaoLu (0.1.4):
+  - AppTaoLu (0.1.8):
     - SDWebImage (~> 4)
     - TLRemoteConfig (~> 0.1.0)
   - SDWebImage (4.0.0):
@@ -32,7 +32,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
-  AppTaoLu: 8f3584e6b7adf73d19e7fe2706d08557ff806388
+  AppTaoLu: 17dfc14b985788dda13ba207e516cc0e0cb8f4c8
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   TLRemoteConfig: 88a61037a2aaeb182680965481aef639ef376b39
 

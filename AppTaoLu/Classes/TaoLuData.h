@@ -37,8 +37,6 @@
 
 + (BOOL)showModalRateBaseTimes;
 
-+ (BOOL)showModalTip;
-
 #pragma mark - 标记key
 
 + (NSString *)rateFlag;
