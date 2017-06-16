@@ -130,14 +130,14 @@ static TaoLuData *taoLuManager;
         return NO;
     }
     
-    BOOL isSystem = [TLRemoteConfig boolForKey:@"rate_style_system"];
-    if (isSystem) {
-        [SKStoreReviewController requestReview];
-    }else {
+    BOOL isCustom = [TLRemoteConfig boolForKey:@"rate_style_custom"];
+    if (isCustom) {
         ModalRate *ctrl = [ModalRate defaultModal];
         [[UIViewController currentViewController] presentViewController:ctrl animated:NO completion:nil];
-        [TaoLuData shareInstance].haveShowRateTimes ++;
+    }else {
+        [SKStoreReviewController requestReview];
     }
+    [TaoLuData shareInstance].haveShowRateTimes ++;
     return YES;
 }
 
