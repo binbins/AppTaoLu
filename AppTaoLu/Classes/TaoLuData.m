@@ -38,14 +38,14 @@ static TaoLuData *taoLuManager;
     if (![USERDEFAULTS boolForKey:KEY_ONWAINTING]) {
         return;
     }
-    [USERDEFAULTS setBool:@(NO) forKey:KEY_ONWAINTING];
+    [USERDEFAULTS setBool:NO forKey:KEY_ONWAINTING];
     
     TaoLuData *taoluData = [TaoLuData shareInstance];
     if ([[NSDate date] laterDate:taoluData.supposedTime] == taoluData.supposedTime) {
         NSLog(@"提前回来，没有完成好评");
     }else {
         
-        [USERDEFAULTS setBool:@(YES) forKey:[TaoLu rateFlag]];
+        [USERDEFAULTS setBool:YES forKey:[TaoLu rateFlag]];
         NSLog(@"完成好评任务");
     }
 }

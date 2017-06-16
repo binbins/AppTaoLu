@@ -5,9 +5,11 @@
 //  Created by yuebin on 17/3/19.
 //
 //
+#define SYSTEM_RATE_TIMES @"system_rate_times"
 
 
 #import "ModalRate.h"
+@import StoreKit;
 
 @interface ModalRate ()
 
@@ -53,15 +55,25 @@
 - (IBAction)confirmAction:(id)sender {
     [self dismissViewControllerAnimated:NO completion:nil];
     
-    NSURL *targetUrl = [SafeObject safeUrl:[TLRemoteConfig localConfig] objectForKey:@"rate_targeturl"];
-    [[UIApplication sharedApplication]openURL:targetUrl];
-    [self enableRateDelay];
+    NSInteger times = [USERDEFAULTS integerForKey:SYSTEM_RATE_TIMES];
+    
+    if (times >=3) {
+        NSURL *targetUrl = [SafeObject safeUrl:[TLRemoteConfig localConfig] objectForKey:@"rate_targeturl"];
+        [[UIApplication sharedApplication]openURL:targetUrl];
+        [self enableRateDelay];
+    }
+    else {
+        [SKStoreReviewController requestReview];
+        times ++;
+        [USERDEFAULTS setInteger:times forKey:SYSTEM_RATE_TIMES];
+        [USERDEFAULTS setBool:YES forKey:[TaoLu rateFlag]];
+    }
 }
 
 - (void)enableRateDelay {
     NSInteger delay = [TLRemoteConfig intForKey:@"rate_limit_time"];
     NSLog(@"好评有效时间 %ld", delay);
     [TaoLuData shareInstance].supposedTime = [NSDate dateWithTimeIntervalSinceNow:delay];
-    [USERDEFAULTS setBool:@(YES) forKey:KEY_ONWAINTING];
+    [USERDEFAULTS setBool:YES forKey:KEY_ONWAINTING];
 }
 @end
