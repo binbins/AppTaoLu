@@ -35,16 +35,29 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark -
 
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self addNotification];
 }
-*/
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [self removeNotification];
+}
+
+- (void)addNotification {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dismiss) name:UIApplicationDidEnterBackgroundNotification object:nil];
+}
+
+- (void)removeNotification {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)dismiss {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 
 @end
