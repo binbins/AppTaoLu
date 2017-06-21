@@ -123,21 +123,22 @@ static TaoLuData *taoLuManager;
         return NO;
     }
     
-    [TaoLuData shareInstance].rateCallTimes ++; //首次不弹
     NSInteger callTimes = [TaoLuData shareInstance].rateCallTimes;
+    [TaoLuData shareInstance].rateCallTimes ++; //首次不弹
     if (callTimes % interval != 0) {
         NSLog(@"[TaoLu showModalRate] 不满足好评间隔约束 当前：%ld 间隔：%ld", callTimes, interval);
         return NO;
     }
     
     BOOL isCustom = [TLRemoteConfig boolForKey:@"rate_style_custom"];
+    [TaoLuData shareInstance].haveShowRateTimes ++;
     if (isCustom) {
         ModalRate *ctrl = [ModalRate defaultModal];
         [[UIViewController currentViewController] presentViewController:ctrl animated:NO completion:nil];
     }else {
         [SKStoreReviewController requestReview];
+        return NO;
     }
-    [TaoLuData shareInstance].haveShowRateTimes ++;
     return YES;
 }
 

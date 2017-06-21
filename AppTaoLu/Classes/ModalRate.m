@@ -55,19 +55,9 @@
 - (IBAction)confirmAction:(id)sender {
     [self dismissViewControllerAnimated:NO completion:nil];
     
-    NSInteger times = [USERDEFAULTS integerForKey:SYSTEM_RATE_TIMES];
-    
-    if (times >=3) {
-        NSURL *targetUrl = [SafeObject safeUrl:[TLRemoteConfig localConfig] objectForKey:@"rate_targeturl"];
-        [[UIApplication sharedApplication]openURL:targetUrl];
-        [self enableRateDelay];
-    }
-    else {
-        [SKStoreReviewController requestReview];
-        times ++;
-        [USERDEFAULTS setInteger:times forKey:SYSTEM_RATE_TIMES];
-        [USERDEFAULTS setBool:YES forKey:[TaoLu rateFlag]];
-    }
+    NSURL *targetUrl = [SafeObject safeUrl:[TLRemoteConfig localConfig] objectForKey:@"rate_targeturl"];
+    [[UIApplication sharedApplication]openURL:targetUrl];
+    [self enableRateDelay];
 }
 
 - (void)enableRateDelay {
