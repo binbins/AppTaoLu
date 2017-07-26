@@ -35,25 +35,25 @@ static TaoLuData *taoLuManager;
 
 + (void)checkResultIfOnwaiting {
 
-    if (![USERDEFAULTS boolForKey:KEY_ONWAINTING]) {
+    if (![TLUSERDEFAULTS boolForKey:KEY_ONWAINTING]) {
         return;
     }
-    [USERDEFAULTS setBool:NO forKey:KEY_ONWAINTING];
+    [TLUSERDEFAULTS setBool:NO forKey:KEY_ONWAINTING];
     
     TaoLuData *taoluData = [TaoLuData shareInstance];
     if ([[NSDate date] laterDate:taoluData.supposedTime] == taoluData.supposedTime) {
         NSLog(@"提前回来，没有完成好评");
     }else {
         
-        [USERDEFAULTS setBool:YES forKey:[TaoLu rateFlag]];
+        [TLUSERDEFAULTS setBool:YES forKey:[TaoLu rateFlag]];
         NSLog(@"完成好评任务");
     }
 }
 
 + (void)resetTaoLu {
 
-    [USERDEFAULTS setObject:@(NO) forKey:[self adFlag]];
-    [USERDEFAULTS setObject:@(NO) forKey:[self rateFlag]];
+    [TLUSERDEFAULTS setObject:@(NO) forKey:[self adFlag]];
+    [TLUSERDEFAULTS setObject:@(NO) forKey:[self rateFlag]];
     [TaoLuData shareInstance].haveShowRateTimes = [TaoLuData shareInstance].rateCallTimes = 0;
 }
 
@@ -67,12 +67,12 @@ static TaoLuData *taoLuManager;
         NSLog(@"[TaoLu showModalAd] 广告关闭");
         return NO;
     }
-    if ([USERDEFAULTS boolForKey:[self adFlag]]) {
+    if ([TLUSERDEFAULTS boolForKey:[self adFlag]]) {
         NSLog(@"[TaoLu showModalAd] 此广告已经弹出过");
         return NO;
     }
     
-    [USERDEFAULTS setObject:@(YES) forKey:[self adFlag]];
+    [TLUSERDEFAULTS setObject:@(YES) forKey:[self adFlag]];
     
     ModalAD *ctrl = [ModalAD defaultModal];
     [[UIViewController currentViewController] presentViewController:ctrl animated:NO completion:nil];
@@ -112,21 +112,21 @@ static TaoLuData *taoLuManager;
         return NO;
     }
     
-    if ([USERDEFAULTS boolForKey:[self rateFlag]]) {
+    if ([TLUSERDEFAULTS boolForKey:[self rateFlag]]) {
         NSLog(@"[TaoLu showModalRate] 已经好评过，不再弹出");
         return NO;
     }
     
     NSInteger haveShowTime = [TaoLuData shareInstance].haveShowRateTimes;
     if (haveShowTime >= maxTimes) {
-        NSLog(@"[TaoLu showModalRate] 本局已显示好评次数：%ld 超过单局最大次数：%ld", haveShowTime, maxTimes);
+        NSLog(@"[TaoLu showModalRate] 本局已显示好评次数：%ld 超过单局最大次数：%ld", (long)haveShowTime, (long)maxTimes);
         return NO;
     }
     
     NSInteger callTimes = [TaoLuData shareInstance].rateCallTimes;
-    [TaoLuData shareInstance].rateCallTimes ++; //首次不弹
+    [TaoLuData shareInstance].rateCallTimes ++; //首次弹
     if (callTimes % interval != 0) {
-        NSLog(@"[TaoLu showModalRate] 不满足好评间隔约束 当前：%ld 间隔：%ld", callTimes, interval);
+        NSLog(@"[TaoLu showModalRate] 不满足好评间隔约束 当前：%ld 间隔：%ld", (long)callTimes, (long)interval);
         return NO;
     }
     
@@ -153,7 +153,7 @@ static TaoLuData *taoLuManager;
         return NO;
     }
     
-    if ([USERDEFAULTS boolForKey:[self rateFlag]]) {
+    if ([TLUSERDEFAULTS boolForKey:[self rateFlag]]) {
         NSLog(@"[TaoLu showModalRate] 已经好评过，不再弹出");
         return NO;
     }
@@ -181,15 +181,11 @@ static TaoLuData *taoLuManager;
     return [TLRemoteConfig boolForKey:@"enable_up"];
 }
 
-+ (BOOL)tipEnable {
-    return [TLRemoteConfig boolForKey:@"enable_tip"];
-}
-
 #pragma mark - flag
 
 + (NSString *)rateFlag {
     
-    NSString *flag = [@"rate" stringByAppendingString:AppVerName];
+    NSString *flag = [@"rate" stringByAppendingString:TLAppVerName];
     return flag;
 }
 
@@ -201,15 +197,10 @@ static TaoLuData *taoLuManager;
 
 + (BOOL)shouldPushUpModal {
     NSString *newVersion = [TLRemoteConfig stringForKey:@"up_new_version"];
-    if ([newVersion isEqualToString:AppVerName]) {
+    if ([newVersion isEqualToString:TLAppVerName]) {
         return NO;
     }
     return YES;
-}
-
-+ (NSString *)tipFlag {
-    NSLog(@"暂时不用");
-    return nil;
 }
 
 @end

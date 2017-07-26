@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'AppTaoLu'
-  s.version          = '0.2.2'
+  s.version          = '0.2.3'
   s.summary          = 'app 中可以共用的弹框'
 
 # This description is used to generate tags and improve search results.
@@ -41,7 +41,7 @@ s.resources = ['AppTaoLu/Assets/*.png'];
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-  s.dependency 'TLRemoteConfig', '~> 0.1.0'
+  s.dependency 'TLRemoteConfig', '~> 0.1.1'
   s.dependency 'SDWebImage', '~> 4'
 
 

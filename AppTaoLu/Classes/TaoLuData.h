@@ -43,7 +43,6 @@
 
 + (NSString *)adFlag;
 
-+ (NSString *)tipFlag;
 
 
 
