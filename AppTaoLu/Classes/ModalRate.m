@@ -62,7 +62,7 @@
 
 - (void)enableRateDelay {
     NSInteger delay = [TLRemoteConfig intForKey:@"rate_limit_time"];
-    NSLog(@"好评有效时间 %ld", delay);
+    NSLog(@"好评有效时间 %ld", (long)delay);
     [TaoLuData shareInstance].supposedTime = [NSDate dateWithTimeIntervalSinceNow:delay];
     [TLUSERDEFAULTS setBool:YES forKey:KEY_ONWAINTING];
 }
