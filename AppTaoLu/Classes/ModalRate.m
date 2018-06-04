@@ -17,7 +17,7 @@
 @property (unsafe_unretained, nonatomic) IBOutlet UILabel *subTitle;
 @property (unsafe_unretained, nonatomic) IBOutlet UIButton *cancelBtn;
 @property (unsafe_unretained, nonatomic) IBOutlet UIButton *confirBtn;
-
+@property (weak, nonatomic) IBOutlet UIImageView *logoIV;
 
 @end
 
@@ -30,15 +30,16 @@
 
 - (void)initView {
     
+    self.logoIV.image = [UIImage imageNamed:@"logo_haoping"];
+    
     NSString *mainTitle = [TLRemoteConfig stringForKey:@"rate_main_title"];
     NSString *subTitle = [TLRemoteConfig stringForKey:@"rate_sub_title"];
     NSString *cancelText = [TLRemoteConfig stringForKey:@"rate_cancel_text"];
-    NSString *confirmText = [TLRemoteConfig stringForKey:@"rate_confirm_text"];
     
     self.mainTitle.text = mainTitle;
     self.subTitle.text = subTitle;
     [self.cancelBtn setTitle:cancelText forState:UIControlStateNormal];
-    [self.confirBtn setTitle:confirmText forState:UIControlStateNormal];
+    
 }
 
 - (void)didReceiveMemoryWarning {

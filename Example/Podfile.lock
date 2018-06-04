@@ -14,8 +14,8 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
-  - AppTaoLu (0.2.3):
-    - SDWebImage (~> 4)
+  - AppTaoLu (0.2.4):
+    - SDWebImage
     - TLRemoteConfig (~> 0.1.1)
   - GDCategory (0.1.0)
   - SDWebImage (4.0.0):
@@ -30,15 +30,15 @@ DEPENDENCIES:
 
 EXTERNAL SOURCES:
   AppTaoLu:
-    :path: "../"
+    :path: ../
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
-  AppTaoLu: 4432d35cc1543f1b074f8cc72ae5be73c5b798e9
+  AppTaoLu: 9de685d3c0b8c0c438cc6bc323d9a2c83f60f739
   GDCategory: 809238a9cd50a685651545a698d171deb7bc98ec
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   TLRemoteConfig: 8c661220624f20f3b1728a7168ab5b7b7362bbc0
 
 PODFILE CHECKSUM: dd10ff3aa474ef115efb5ca467e9b87188310bdd
 
-COCOAPODS: 1.2.0
+COCOAPODS: 1.4.0.beta.2
